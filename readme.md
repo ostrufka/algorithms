@@ -61,9 +61,14 @@
   > Circular Linked List
   Ex: [simple_linked_list.py] [double_linked_list.py]
 
-* **Pile**: collection where objects can be inserted/removed as FILO (First In, Last Out).
-  > Stack follow pile abstraction.
+* **Stack**: collection where objects can be inserted/removed as FILO (First In, Last Out).
+  > Memory stack follows the stack (pile) abstraction.
   > Operations: push (insert element), pop (remove element), top (element in the top), is_empty
-  > All operations are O(1)*
+  > All operations are O(1)
   > Applications: browser history, CTRL + Z, programs execution pile, transform recursive problems to iteractive, aux. structure for tree navegation.
 
+* **Queue**: collection where objects can be inserted/removed as FIFO (First In, First Out).
+  > Operations: enqueue (insert element), dequeue (remove element), first (first element in the queue), is_empty, len
+  > All operations are O(1)
+  > Applications: real life queues, task queues in servers, auxiliar structure for tree traversal, tokenization of arithmetic expressions.
+  > Double linked list is good to implement queue (deque in python).
