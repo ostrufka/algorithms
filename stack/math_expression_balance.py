@@ -1,4 +1,4 @@
-from pile_with_deque import Pile
+from stack_with_deque import Pile
 
 class Balance:
     ''' 

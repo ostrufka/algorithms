@@ -49,7 +49,7 @@
   > Uses a pile of execution to store execution states info for each call.
   > Tail Recursion Optimization
   > Recursion can replace loops
-  Ex: [hanoi_tower.py] [power_calculator.py] [multiplication_calculator.py] [factorial_calculator.py]
+  Ex: [hanoi_tower.py] [power_calculator.py] [multiplication_calculator.py] [factorial_calculator.py] [sequence_max_min.py]
 
 * **Vector/Array**: contiguous space in mamory. 
   > Element access in O(1).
@@ -66,9 +66,37 @@
   > Operations: push (insert element), pop (remove element), top (element in the top), is_empty
   > All operations are O(1)
   > Applications: browser history, CTRL + Z, programs execution pile, transform recursive problems to iteractive, aux. structure for tree navegation.
+  Ex: [hanoi_tower_iteractive_with_stack.py] [math_expression_balance.py] [stack_with_deque.py] [stack_with_list.py]
 
 * **Queue**: collection where objects can be inserted/removed as FIFO (First In, First Out).
   > Operations: enqueue (insert element), dequeue (remove element), first (first element in the queue), is_empty, len
   > All operations are O(1)
   > Applications: real life queues, task queues in servers, auxiliar structure for tree traversal, tokenization of arithmetic expressions.
   > Double linked list is good to implement queue (deque in python).
+  Ex: [arithmetic_expression_evaluation.py] [queue_with_deque.py]
+
+**Sorting**: process of ordering elements from an object collection
+  > Transitive property: a < b and b < c -> a < c
+  > Different between sort and sorted (for python):
+    * sort: method -> original_list.sort() - change the original list object by sorting its elements (return None) - consume less memory
+      # object.sort(key=function_that_return_sorting_criteria()) -> function can return a tuple to give more options of comparison in case of tie
+      # object.sort(reverse=True) -> sort in reverse way
+    * sorted: function -> new_list = sorted(original_list) - create a new list by copying and sorting elements from original list - consume more memory
+  > Important magic methods: __gt__, __lt__, __equal__ (@total_ordering)
+  > Algorithms Alaysis:
+    * Simple algorithm: O(nˆ2) - bubble, selection, insertion
+    * Complex algorithms: O(n.log[n]) - quick (mean case), merge, heap
+    # Python uses a hybrid algorithm: Tim Sort (derived from merge and insertion sort algorithms)
+
+**Selection Sort**: 
+> Process:
+1. Search for minimal value iterating over elements of a list
+2. Remove the minimal value and put it as the last element in the ordered list
+3. Repeat steps 1 and 2 until the list is completely ordered
+> Analysis>
+* Number of iterations: n+(n-1)+(n-2)+...+1 -> O(nˆ2)
+* Any difference if list is random or ordered
+
+**Bubble Sort**: 
+
+

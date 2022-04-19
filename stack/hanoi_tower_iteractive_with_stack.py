@@ -1,5 +1,5 @@
 '''
-Hanoi Tower (Iteractive implementation with Pile)
+Hanoi Tower (Iteractive implementation with Stack)
 
  A   B   C
 _|_ _|_ _|_
@@ -9,7 +9,7 @@ Complexity:
     * Memory: O(n)
 '''
 
-from pile_with_deque import Pile
+from stack_with_deque import Pile
 
 REC_CALL = 'CALL'
 RETURN_CALL = 'RETURN'
