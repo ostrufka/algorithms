@@ -1,19 +1,13 @@
 '''
-Bubble Sort
+Quick Sort
 
 Complexity: 
     * Execution time: O()
     * Memory: O()
 '''
 
-def slice_without_extensive_memory_consumption(sequence, current_idx):
-    # return sequence[idx:] -> this way consume more memory
-    for idx in range(current_idx, len(sequence)):
-        yield sequence[idx]
-
 def order(sequence: list) -> list:
-    
-    return sequence
+    return []
 
 
 ######### Unit Tests #########
@@ -32,6 +26,10 @@ class OrderTests(unittest.TestCase):
 
     def test_unsorted_list(self):
         self.assertListEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], order([9, 7, 1, 8, 5, 3, 6, 4, 2, 0]))
+        self.assertListEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 9], order([9, 7, 1, 8, 5, 3, 6, 4, 2, 9]))
+
+    def test_sorted_list(self):
+        self.assertListEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], order([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]))
 
 
 if __name__ == '__main__':

@@ -75,7 +75,8 @@
   > Double linked list is good to implement queue (deque in python).
   Ex: [arithmetic_expression_evaluation.py] [queue_with_deque.py]
 
-**Sorting**: process of ordering elements from an object collection
+
+**SORTING**: process of ordering elements from an object collection
   > Transitive property: a < b and b < c -> a < c
   > Different between sort and sorted (for python):
     * sort: method -> original_list.sort() - change the original list object by sorting its elements (return None) - consume less memory
@@ -98,5 +99,41 @@
 * Any difference if list is random or ordered
 
 **Bubble Sort**: 
+> Process:
+1. Iterate n-1 times through the list
+2. Change the element by its sucessor if the element is bigger than the sucessor
+> Analysis>
+* Number of iterations: n*(n-1) -> O(nˆ2)
 
+**Insertion Sort**: 
+> Process:
+1. Choose one element
+2. Add it to the end of the sorted list
+3. Move it to the correct position
+4. Repeat steps 1, 2 and 3 until the list is completely ordered
+> Analysis>
+* Number of iterations: n*(n-1) -> O(nˆ2)
 
+**Merge Sort**:
+> Paradigm:
+* Divide and conquer
+> Process:
+DIVIDE
+1. Divide list in the middle
+2. For each half, check if its length is >= 1
+  a. If len(sub_list) > 1, repeat step 1 for it
+  b. If len(sub_list) == 1, this is and sorted list
+CONQUER
+3. When step b is executed, order the last two unitary lists and group it into one sorted list
+4. Repeat step 3 until all sub lists are grouped into one sorted list
+> Analysis>
+* Number of iterations: divide -> O(n) | conquer -> O(log(n)) | merge sorting -> O(n.log(n))
+
+**Quick Sort**: 
+> Process:
+1. Choose one element
+2. Add it to the end of the sorted list
+3. Move it to the correct position
+4. Repeat steps 1, 2 and 3 until the list is completely ordered
+> Analysis>
+* Number of iterations: n*(n-1) -> O(nˆ2)
