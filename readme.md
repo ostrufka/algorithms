@@ -94,7 +94,7 @@
 1. Search for minimal value iterating over elements of a list
 2. Remove the minimal value and put it as the last element in the ordered list
 3. Repeat steps 1 and 2 until the list is completely ordered
-> Analysis>
+> Analysis:
 * Number of iterations: n+(n-1)+(n-2)+...+1 -> O(nˆ2)
 * Any difference if list is random or ordered
 
@@ -102,7 +102,7 @@
 > Process:
 1. Iterate n-1 times through the list
 2. Change the element by its sucessor if the element is bigger than the sucessor
-> Analysis>
+> Analysis:
 * Number of iterations: n*(n-1) -> O(nˆ2)
 
 **Insertion Sort**: 
@@ -111,12 +111,12 @@
 2. Add it to the end of the sorted list
 3. Move it to the correct position
 4. Repeat steps 1, 2 and 3 until the list is completely ordered
-> Analysis>
+> Analysis:
 * Number of iterations: n*(n-1) -> O(nˆ2)
 
 **Merge Sort**:
 > Paradigm:
-* Divide and conquer
+* Divide and conquer (obvious solution for len(seq)<=1)
 > Process:
 DIVIDE
 1. Divide list in the middle
@@ -126,14 +126,25 @@ DIVIDE
 CONQUER
 3. When step b is executed, order the last two unitary lists and group it into one sorted list
 4. Repeat step 3 until all sub lists are grouped into one sorted list
-> Analysis>
+> Analysis:
 * Number of iterations: divide -> O(n) | conquer -> O(log(n)) | merge sorting -> O(n.log(n))
 
-**Quick Sort**: 
+**Quick Sort**:
+> Paradigm:
+* Divide and conquer (obvious solution for len(seq)<=1)
 > Process:
-1. Choose one element
-2. Add it to the end of the sorted list
-3. Move it to the correct position
-4. Repeat steps 1, 2 and 3 until the list is completely ordered
-> Analysis>
-* Number of iterations: n*(n-1) -> O(nˆ2)
+DIVIDE
+1. Choose one pivot
+2. Create two lists, one with elements lower than the pivot and other with the greater elements
+CONQUER
+1. Order the sub_lists using quick sort until the original list is ordered (concatenation)
+> Analysis:
+* Number of iterations: 
+  a. Mean case (pivot in the middle) -> O(n.log(n))
+  b. Worst case (pivot = last element and list is sorted) -> O(n^2)                   
+* To avoid problems, choose pivot randomly or as median
+
+**Radix Sort**: to be searched...
+
+
+**TREE**:

@@ -1,33 +1,48 @@
 '''
-Quick Sort (random pivot)
+Quick Sort in-place (random pivot and no sublist creation)
 
 Complexity: 
     * Execution time: O(n.log(n)) | O(n^2)
-    * Memory: O()
+    * Memory: O(log(n))
 '''
 
 from random import randint
 
+def quick_sort_in_place(seq: list, i_idx: int, f_idx: int) -> list:
+    initial, final = i_idx, f_idx
+    if initial >= final: return seq
+
+    # Select pivot and move it to the end
+    p_idx = randint(i_idx, f_idx)
+    seq[p_idx], seq[f_idx], p_idx = seq[f_idx], seq[p_idx], f_idx
+ 
+    while i_idx < f_idx:
+        # Ascending search
+        idx = i_idx
+        while seq[idx] < seq[p_idx]:
+            idx += 1
+        if idx < p_idx:
+            seq[p_idx], seq[idx], p_idx = seq[idx], seq[p_idx], idx
+            f_idx -= 1
+        else:
+            f_idx = p_idx
+        # Descendind search
+        idx = f_idx
+        while seq[idx] > seq[p_idx]:
+            idx -= 1
+        if idx > p_idx:
+            seq[p_idx], seq[idx], p_idx = seq[idx], seq[p_idx], idx
+            i_idx += 1
+        else:
+            i_idx = p_idx
+
+    seq = quick_sort_in_place(seq, initial, p_idx - 1)
+    seq = quick_sort_in_place(seq, p_idx + 1, final)
+    return seq
+
 def order(sequence: list) -> list:
-    sequence_size = len(sequence)
-    if sequence_size <= 1:
-        return sequence
-    
-    greaters, lowers = [], []
-    # pivot = sequence.pop() # pivot as last element
-    pivot_idx = randint(0, sequence_size-1)
-    pivot = sequence[pivot_idx]
-    sequence.remove(pivot)
-
-    # divide
-    lowers = [n for n in sequence if n < pivot]
-    sorted_lowers = order(lowers)
-    greaters = [n for n in sequence if n >= pivot]
-    sorted_greaters = order(greaters)
-
-    # conquer
-    sorted_list = sorted_lowers + [pivot] + sorted_greaters
-    return sorted_list
+    initial_idx, final_idx = 0, len(sequence) - 1
+    return quick_sort_in_place(sequence, initial_idx, final_idx)
 
 
 ######### Unit Tests #########
