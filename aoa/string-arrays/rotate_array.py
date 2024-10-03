@@ -37,17 +37,10 @@ def rotate_array(list: List, k: int):
         return []
     if k == 0:
         return list
-    # first = list[:n-k]
-    # last = list[n-k:]
+    first = list[:n-k]
+    last = list[n-k:]
 
-    # return last + first
-    rotated = []
-    for i in range(n):
-        if i < k:
-            rotated[i + k] = list[i]
-        else:
-            rotated[i - k] = list[i]
-    return rotated
+    return last + first
 
 
 if __name__ == '__main__':
