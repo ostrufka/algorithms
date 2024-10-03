@@ -11,7 +11,7 @@ Could you do it in-place without allocating extra space?
 
 Análise:
 #1 Tempo = O(n) / Memória = O(n)
-#2 Tempo = O( ) / Memória = O( )
+#2 Tempo = O(n) / Memória = O(1)
 """
 
 import doctest
