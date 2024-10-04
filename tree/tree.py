@@ -83,7 +83,7 @@ class BinarySearchTree(BinaryTree):
     def __init__(self, data=None) -> None:
         super().__init__(data)
 
-    def insert(self, value: int) -> None:
+    def parent(self, value: int):
         parent = None
         x = self.root
         while (x):
@@ -92,15 +92,37 @@ class BinarySearchTree(BinaryTree):
                 x = x.left
             else:
                 x = x.right
+        return parent
+
+    def insert(self, value: int) -> None:
+        parent = self.parent(value)
         if parent is None:
             self.root = Node(value)
         elif value < parent.data:
             parent.left = Node(value)
         else:
-            parent.right = Node(value)
+            parent.right = Node(value)      
 
-    def remove(self, value: int) -> None:
-        pass
+    def remove(self, value: int, node=ROOT) -> None:
+        if node == ROOT:
+            node = self.root
+        if node is None:
+            return node
+        
+        if value < node.data:
+            node.left = self.remove(value, node.left)
+        elif value > node.data:
+            node.right = self.remove(value, node.right)
+        else:
+            if node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            else:
+                substitute = self.min(node.right)
+                node.data = substitute
+                node.right = self.remove(substitute, node.right)
+        return node
         
     def search(self, value):
         return self._search(value, self.root)
@@ -115,6 +137,19 @@ class BinarySearchTree(BinaryTree):
         else:
             return self._search(value, node.right)
         
+    def min(self, node=ROOT):
+        if node == ROOT:
+            node = self.root
+        while node.left:
+            node = node.left
+        return node.data
+    
+    def max(self, node=ROOT):
+        if node == ROOT:
+            node = self.root
+        while node.right:
+            node = node.right
+        return node.data
 
 # Examples
 
