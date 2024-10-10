@@ -31,7 +31,7 @@ import doctest
 
 hanoi_call_count = 0
 
-def _recursive_hanoi_tower(n: int, origin: str = 'A', destine: str = 'B', aux: str = 'C'):
+def _recursive_hanoi_tower(n: int, origin: str = 'A', destine: str = 'B', aux: str = 'C') -> None:
     global hanoi_call_count
     hanoi_call_count += 1
     if n == 1:
@@ -41,7 +41,7 @@ def _recursive_hanoi_tower(n: int, origin: str = 'A', destine: str = 'B', aux: s
         print(f'{origin} -> {destine} : {n}')
         _recursive_hanoi_tower(n - 1, origin=aux, destine=destine, aux=origin)
 
-def hanoi_tower(n: int):
+def hanoi_tower(n: int) -> None:
     """
     >>> hanoi_tower(1)
     A -> B : 1
