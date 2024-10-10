@@ -11,7 +11,7 @@ Complexity:
     * Memory: O()
 '''
 
-from queue_with_deque import Queuecan you help me study 
+from queue_with_deque import Queue
 
 ROOT = 'root'
 
